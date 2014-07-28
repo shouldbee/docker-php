@@ -4,7 +4,9 @@ RUN apt-get update -qq && apt-get install -y php5 php5-mysql php5-curl apache2 l
 
 ADD php/general.ini  /etc/php5/mods-available/general.ini
 ADD php/mbstring.ini /etc/php5/mods-available/mbstring.ini
+ADD php/cli.ini      /etc/php5/mods-available/cli.ini
 RUN php5enmod general mbstring
+RUN php5enmod -s cli cli
 
 ADD apache/apache.conf /etc/apache2/sites-available/sites.conf
 RUN a2enmod rewrite && a2ensite sites && a2dissite 000-default
