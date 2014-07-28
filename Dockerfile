@@ -9,4 +9,5 @@ RUN php5enmod general mbstring
 ADD apache/apache.conf /etc/apache2/sites-available/sites.conf
 RUN a2enmod rewrite && a2ensite sites && a2dissite 000-default
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+RUN mkdir /etc/service/apache2
+ADD apache2.sh /etc/service/apache2/run
