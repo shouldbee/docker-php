@@ -12,7 +12,7 @@ php_sapi_name() == "cli" and assert(ini_get("display_errors") === "1");
 php_sapi_name() != "cli" and assert(ini_get("display_errors") === "0");
 assert(ini_get("log_errors") === "1");
 assert(ini_get("log_errors_max_len") === "4096");
-assert(ini_get("error_log") === "/var/log/php_error.log");
+assert(ini_get("error_log") === "/var/log/php/error.log");
 assert(ini_get("register_globals") === false);
 assert(ini_get("register_long_arrays") === false);
 assert(ini_get("allow_url_include") === "0");
