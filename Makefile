@@ -9,6 +9,7 @@ test:
 	sudo docker run --rm $(IMAGE) php -m | grep mysql
 	sudo docker run --rm $(IMAGE) php -m | grep curl
 	sudo docker run --rm -v /vagrant:/vagrant $(IMAGE) php /vagrant/php/test.php
+	sudo docker run --rm $(IMAGE) test -d /var/log/php
 
 	sudo docker rm -f http || true
 	sudo docker run -d -i -t --name http -v /vagrant:/vagrant --net host $(IMAGE)
