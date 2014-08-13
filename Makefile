@@ -12,7 +12,7 @@ test:
 	sudo docker run --rm $(IMAGE) test -d /var/log/php
 
 	sudo docker rm -f http || true
-	sudo docker run -d -i -t --name http -v /vagrant:/vagrant --net host $(IMAGE)
+	sudo docker run -d -i -t --name http -v /vagrant:/vagrant --net host -e DOCUMENT_ROOT=/vagrant/public $(IMAGE)
 	wget --retry-connrefused --content-on-error localhost/test.php -qO -
 	curl -s -I localhost | grep -P '^Server: Apache\r$$'
 	sudo docker rm -f http
