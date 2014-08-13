@@ -16,6 +16,3 @@ test:
 	wget --retry-connrefused --content-on-error localhost/test.php -qO -
 	curl -s -I localhost | grep -P '^Server: Apache\r$$'
 	sudo docker rm -f http
-
-push: test
-	sudo docker push $(IMAGE)
