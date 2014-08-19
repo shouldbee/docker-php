@@ -8,6 +8,7 @@ test:
 	sudo docker run --rm $(IMAGE) php -m | grep mbstring
 	sudo docker run --rm $(IMAGE) php -m | grep mysql
 	sudo docker run --rm $(IMAGE) php -m | grep curl
+	sudo docker run --rm $(IMAGE) php -m | grep gd
 	sudo docker run --rm -v /vagrant:/vagrant $(IMAGE) php /vagrant/php/test.php
 	sudo docker run --rm $(IMAGE) test -d /var/log/php
 
