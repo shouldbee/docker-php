@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "reoring/ubuntu-14.04-with-docker"
+  config.vm.box = "shouldbee/ubuntu-14.04-with-docker"
   config.ssh.username = "vagrant"
 
   # config.vm.network "forwarded_port", guest: 80, host: 8888

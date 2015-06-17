@@ -12,6 +12,7 @@ RUN mkdir /var/log/php
 ADD apache/apache.conf /etc/apache2/sites-available/sites.conf
 RUN a2enmod rewrite && a2ensite sites && a2dissite 000-default
 ADD apache/security.conf /etc/apache2/conf-available/security.conf
+ADD apache/ports.conf /etc/apache2/ports.conf
 
 RUN mkdir /etc/service/apache2
 ADD apache2.sh /etc/service/apache2/run

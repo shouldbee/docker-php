@@ -3,6 +3,12 @@ IMAGE := shouldbee/php
 build:
 	sudo docker build -t $(IMAGE) .
 
+clean:
+	sudo docker ps -aq | xargs sudo docker rm -f
+
+run:
+	sudo docker run -d --name php --net=host -v /vagrant:/vagrant -e DOCUMENT_ROOT=/vagrant/public $(IMAGE)
+
 test:
 	sudo docker run --rm $(IMAGE) php -v | grep 'PHP 5.5.9'
 	sudo docker run --rm $(IMAGE) php -m | grep mbstring
